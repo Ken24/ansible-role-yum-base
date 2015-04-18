@@ -1,7 +1,9 @@
 Ansible Role: YUM (Development Tools )
 ======================================
 
-
+* Update packages.
+* Install basic packages (ex: screen and libselinx-python).
+* Add ``.screenrc``
 
 Requirements
 ------------
