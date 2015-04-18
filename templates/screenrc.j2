@@ -1,0 +1,18 @@
+termcapinfo rxvt-unicode ti@:te@     #enable SHIFT-PGUP / SHIFT-PGDOWN scroll
+terminfo rxvt-unicode ti@:te@:
+term screen-256color
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+setenv DISPLAY ':0'
+nonblock on
+vbell off
+msgwait 10
+escape ^{{ screen_escape_key }}
+
+
+screen    -t top         0
+screen    -t sudo         1
+screen    -t ssh          2
+screen    -t java         3
+
+select 0

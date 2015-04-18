@@ -1,0 +1,22 @@
+---
+
+- name: Ensure every package are latest
+  yum: name="*" state=latest
+  when: yum_base_is_package_latest == 'true'
+
+- name: Ensure base packages are installed
+  yum: name="{{ item }}" state=present
+  with_items:
+    - libselinux-python
+    - screen
+
+
+- name: Ensure configuration file for screen with backup
+  template:
+    src: screenrc.j2
+    dest: "{{ item.dest }}.screenrc"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: 0644
+    backup: yes
+  with_items: screen_screenrc_destinations

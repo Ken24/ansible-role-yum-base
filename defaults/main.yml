@@ -1,0 +1,11 @@
+---
+# Rundeck
+yum_base_is_package_latest: False  # automatically generate ssh key, set to False to stop this action.
+# OS, kept for backward compatibility, use rundeck_download_path instead.
+screen_escape_key: Zz
+
+screen_screenrc_destinations:
+  # new users
+  - { dest: '/etc/skel/', owner: 'root', group: 'root'}
+  # current user
+  - { dest: "/home/{{ ansible_ssh_user}}/", owner: "{{ ansible_ssh_user }}", group: "{{ ansible_ssh_user }}" }
